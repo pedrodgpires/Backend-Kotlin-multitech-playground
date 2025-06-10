@@ -1,0 +1,18 @@
+type RentalDto {
+    id: ID!
+    bookId: String
+    clientId: String
+    rentalDate: String
+    returnDate: String
+}
+input CreateRentalDto {
+    bookId: ID!
+    clientId: ID!
+}
+
+extend type Query {
+    getAllRentals: [RentalDto]
+}
+extend type Mutation {
+    createRental(createRentalDto: CreateRentalDto!): RentalDto
+}

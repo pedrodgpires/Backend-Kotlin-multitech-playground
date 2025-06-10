@@ -1,0 +1,21 @@
+input CreateClientDto {
+    name: String!
+    email: String!
+    phoneNumber: String
+}
+type ClientDto {
+    id: ID!
+    name: String!
+    email: String!
+    phoneNumber: String
+    rentals: [RentalDto]
+}
+
+type Query {
+    getAllClients: [ClientDto],
+}
+type Mutation {
+    createClient(clientDto: CreateClientDto!): ClientDto
+    updateClientEmail(id: ID!, email: String!): ClientDto
+    deleteClient(id: ID!): Boolean
+}

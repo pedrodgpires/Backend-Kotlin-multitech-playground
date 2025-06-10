@@ -1,0 +1,20 @@
+type InvoiceDto {
+    id: ID
+    rentalId: ID
+    reference: String
+    amount: Float
+    date: String
+}
+
+input CreateInvoiceDto {
+    rentalId: ID!
+    reference: String!
+    amount: Float!
+}
+
+extend type Query {
+    getAllInvoicesOfClient(clientId: ID!): [InvoiceDto]
+}
+extend type Mutation {
+    createInvoice(createInvoiceDto: CreateInvoiceDto!): InvoiceDto
+}
